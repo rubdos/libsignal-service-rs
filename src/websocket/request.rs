@@ -83,7 +83,6 @@ impl<C: WebSocketType> WebSocketRequestBuilder<'_, C> {
         password: &str,
     ) -> Self {
         use base64::engine::{general_purpose::STANDARD, Engine};
-        let phonenumber = phonenumber.to_string();
         let encoded =
             STANDARD.encode(format!("{phonenumber}:{password}").as_bytes());
         self.message_builder = self
